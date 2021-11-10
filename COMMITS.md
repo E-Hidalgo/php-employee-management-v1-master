@@ -1,2 +1,4 @@
 1. Created commits log
-2.
+2. HTML + CSS Skeleton created, css is not working dnwhy??
+3. Session started, variables working.
+4. Commits log updated
