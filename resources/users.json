@@ -3,7 +3,7 @@
     {
       "userId": 1,
       "name": "admin",
-      "password": "123456",
+      "password": "$2y$10$tuzVcGlwk2iQ.0YGkzq8xOlGytJlhPka2opzpn3aSVXXK/Ci4NniK",
       "email": "admin@assemblerschool.com"
     }
   ]

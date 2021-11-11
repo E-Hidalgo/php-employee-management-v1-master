@@ -16,13 +16,17 @@ $passWord = $_POST["password"];
 $_SESSION["username"]= $userName;
 $_SESSION["password"] = $passWord;
 
+
 $string = file_get_contents("../../resources/users.json");
 $json = json_decode($string,true);
 
 $userNameDb = $json["users"][0]["name"];
 $passWordDb = $json["users"][0]["password"];
 
-if($userName === $userNameDb && $passWord === $passWordDb )
+$hash = password_hash($passWord, PASSWORD_DEFAULT, ["cost"=>10]);
+
+
+if($userName === $userNameDb && password_verify($passWord, $hash) === $passWordDb )
 {
 header("location: ../dashboard.php");
 } else {

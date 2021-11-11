@@ -44,9 +44,9 @@ $isLogout = $_GET["logout"];
               </div>
               <input type="password" class="form-control" placeholder="password" name="password">
             </div>
-            <div class="alert alert-info" role="alert">
-              <?= $isLogout ? "You have succesfully logged out":""?>
-            </div>
+
+            <?= $isLogout ? '<div class="alert alert-info" role="alert">You have succesfully logged out</div>':""?>
+
             <div class="form-group">
               <input type="submit" value="Login" class="btn float-right login_btn">
             </div>
