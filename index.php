@@ -1,4 +1,8 @@
 <!-- TODO Application entry point. Login view -->
+<?php
+$isLogout = $_GET["logout"];
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -40,7 +44,9 @@
               </div>
               <input type="password" class="form-control" placeholder="password" name="password">
             </div>
-
+            <div class="alert alert-info" role="alert">
+              <?= $isLogout ? "You have succesfully logged out":""?>
+            </div>
             <div class="form-group">
               <input type="submit" value="Login" class="btn float-right login_btn">
             </div>
