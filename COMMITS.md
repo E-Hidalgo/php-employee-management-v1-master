@@ -8,6 +8,9 @@
 8. signOut working, logout message remain
 9. Commits log updated
 10. Logout alert done
+11. Playing with password encrypt
+12. Commits log updated
+
 
 
     "password": "$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC"
