@@ -5,3 +5,5 @@
 5. database connected, authUser done, checkSession done
 6. Commits log updated
 7. dashboard skeleton created
+8. signOut working, logout message remain
+9. 6. Commits log updated
