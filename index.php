@@ -11,8 +11,12 @@ $isLogout = $_GET["logout"];
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/login.css">
 
+  <!--Fontawesome CDN-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -30,19 +34,19 @@ $isLogout = $_GET["logout"];
 
         </div>
         <div class="card-body">
-          <form action="./src/library/loginManager.php" method="POST">
+          <form action="" method="POST" id="login">
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="username" name="username">
+              <input type="text" class="form-control" placeholder="username" name="username" id="username">
 
             </div>
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input type="password" class="form-control" placeholder="password" name="password">
+              <input type="password" class="form-control" placeholder="password" name="password" id="password">
             </div>
 
             <?= $isLogout ? '<div class="alert alert-info" role="alert">You have succesfully logged out</div>':""?>
@@ -55,6 +59,9 @@ $isLogout = $_GET["logout"];
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="./assets/js/index.js"></script>
+
 </body>
 
 </html>

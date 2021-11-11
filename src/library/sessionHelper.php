@@ -10,28 +10,35 @@ function checkSession() {
 function authUser()
 {
   session_start();
-$userName = $_POST["username"];
-$passWord = $_POST["password"];
-
-$_SESSION["username"]= $userName;
-$_SESSION["password"] = $passWord;
-
-
-$string = file_get_contents("../../resources/users.json");
-$json = json_decode($string,true);
-
-$userNameDb = $json["users"][0]["name"];
-$passWordDb = $json["users"][0]["password"];
-
-$hash = password_hash($passWord, PASSWORD_DEFAULT, ["cost"=>10]);
-
-
-if($userName === $userNameDb && password_verify($passWord, $hash) === $passWordDb )
-{
-header("location: ../dashboard.php");
-} else {
-  header("location: ../../index.php");
+  $userName = $_POST["username"];
+  $passWord = $_POST["password"];
+  
+  $_SESSION["username"]= $userName;
+  $_SESSION["password"] = $passWord;
+  checkUser();
 }
+
+function checkUser() {
+  $userName = $_POST["username"];
+  $passWord = $_POST["password"];
+
+  
+  $_SESSION["username"]= $userName;
+  $_SESSION["password"] = $passWord;
+  
+  
+  $string = file_get_contents("../../resources/users.json");
+  $json = json_decode($string,true);
+  echo "<pre>";
+  // var_dump( $json)."<br>";
+
+  
+  $userNameDb = $json["users"][0]["name"];
+  $passWordDb = $json["users"][0]["password"];
+
+  
+
+
 }
 
 function destroySession() {
