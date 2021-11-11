@@ -4,3 +4,4 @@
 4. Commits log updated
 5. database connected, authUser done, checkSession done
 6. Commits log updated
+7. dashboard skeleton created
