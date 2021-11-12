@@ -1,5 +1,6 @@
 <?php
 
+// IF THERE IS NO SESSION, REDIRECT TO LOGIN PAGE
 function checkSession() {
   session_start();
   if(!isset($_SESSION["username"])) {
@@ -7,40 +8,37 @@ function checkSession() {
   }
 }
 
+// TO CATCH THE DATA FROM LOGIN 
 function authUser()
 {
-  session_start();
   $userName = $_POST["username"];
   $passWord = $_POST["password"];
-  
-  $_SESSION["username"]= $userName;
-  $_SESSION["password"] = $passWord;
+
+  echo $userName;
+  echo $passWord;
   checkUser();
 }
 
+// TO CHECK IF USER IS IN DATABASE
 function checkUser() {
-  $userName = $_POST["username"];
-  $passWord = $_POST["password"];
-
-  
-  $_SESSION["username"]= $userName;
-  $_SESSION["password"] = $passWord;
-  
-  
+// GETTING DATA FROM JSON
   $string = file_get_contents("../../resources/users.json");
   $json = json_decode($string,true);
   echo "<pre>";
-  // var_dump( $json)."<br>";
+  var_dump($json);
 
-  
   $userNameDb = $json["users"][0]["name"];
   $passWordDb = $json["users"][0]["password"];
 
-  
-
-
+  // if($userName === $userNameDb && $passWord===$passWordDb){
+  //   session_start();
+  //   $_SESSION["username"];
+  //   $_SESSION["password"];
+  // }
 }
 
+
+//TO DESTROY SESSION & COOKIE
 function destroySession() {
   session_start();
 unset($_SESSION);

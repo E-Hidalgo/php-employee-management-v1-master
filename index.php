@@ -34,7 +34,8 @@ $isLogout = $_GET["logout"];
 
         </div>
         <div class="card-body">
-          <form action="" method="POST" id="login">
+
+          <form method="POST" id="login">
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -60,7 +61,7 @@ $isLogout = $_GET["logout"];
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <script src="./assets/js/index.js"></script>
+  <script src="./index.js"></script>
 
 </body>
 
