@@ -1,4 +1,4 @@
-
+// ---------- GETTING USERNAME AND PASSWORD ------------
 $("#login").submit(function (e) {
   e.preventDefault();
 

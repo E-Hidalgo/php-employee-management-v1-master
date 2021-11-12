@@ -11,15 +11,12 @@ function checkSession() {
 // TO CATCH THE DATA FROM LOGIN 
 function authUser()
 {
-
   $userName = $_POST["username"];
-$passWord = $_POST["password"];
-
+  $passWord = $_POST["password"];
   // echo $userName;
   // echo $passWord;
  
 // GETTING DATA FROM JSON
-
   $string = file_get_contents("../../resources/users.json");
   $json = json_decode($string,true);
   $users = $json["users"];
@@ -30,7 +27,6 @@ include_once("loginManager.php");
   foreach ($users as $user) {
     if($user["name"] === $userName) {
       //User Registered"
-
       if(password_verify($passWord, $user["password"])) {
         //All ok log in
         session_start();
@@ -44,11 +40,6 @@ include_once("loginManager.php");
     }
     // var_dump($user);
 }
-
-
-
-
-
 }
 
 
