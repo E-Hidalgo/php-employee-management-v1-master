@@ -26,8 +26,11 @@ $isLogout = $_GET["logout"];
 </head>
 
 <body class="d-flex justify-content-center">
-  <div class="container">
-    <div class="d-flex justify-content-center h-100">
+  <div class="container d-flex flex-column justify-content-center align-items-center h-100">
+    <img class="shadow-sm p-3 mb-5 bg-body rounded mt-6" src="https://cdn.worldvectorlogo.com/logos/scrumorg-1.svg"
+      alt="scrum_logo" width="200">
+    <div class="d-flex justify-content-center align-items-center ">
+
       <div class="card">
         <div class="card-header">
           <h3>Sign In</h3>
@@ -53,7 +56,7 @@ $isLogout = $_GET["logout"];
             <?= $isLogout ? '<div class="alert alert-info" role="alert">You have succesfully logged out</div>':""?>
 
             <div class="form-group">
-              <input type="submit" value="Login" class="btn float-right login_btn">
+              <input type="submit" value="Login" class="btn float-right btn-info login_btn">
             </div>
           </form>
         </div>

@@ -14,7 +14,7 @@ checkSession();
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="./assets/css/login.css">
+  <link rel="stylesheet" href="../assets/css/login.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <title>Document</title>
 </head>
@@ -37,6 +37,38 @@ checkSession();
     </ul>
   </header>
   <h1><?php echo "Welcome Papafrita, ". $_SESSION["username"]?></h1>
+
+  <div class="container">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col-md">#</th>
+          <th scope="col-md">First</th>
+          <th scope="col-md">Last</th>
+          <th scope="col-md">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 
 </html>

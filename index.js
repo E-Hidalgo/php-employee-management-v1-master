@@ -13,7 +13,8 @@ $("#login").submit(function (e) {
     console.log(response)
     switch (response) {
       case "Login Ok":
-        location.href = "./src/dashboard.php"; break;
+        location.href = "./src/dashboard.php";
+        break;
 
       default:
         break;

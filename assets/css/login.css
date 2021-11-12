@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
-  background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2015/12/01/15/43/black-1072366_1280.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
@@ -15,8 +21,8 @@ body {
 }
 
 .card {
-  height: 370px;
-  margin-top: auto;
+  height: 250px;
+  margin-top: 0;
   margin-bottom: auto;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.5) !important;
@@ -45,8 +51,8 @@ body {
 
 .input-group-prepend span {
   width: 50px;
-  background-color: #FFC312;
-  color: black;
+  background-color: #12A3B8;
+  color: white;
   border: 0 !important;
 }
 
