@@ -24,7 +24,7 @@ function checkUser() {
 // GETTING DATA FROM JSON
   $string = file_get_contents("../../resources/users.json");
   $json = json_decode($string,true);
-  echo "<pre>";
+ 
   var_dump($json);
 
   $userNameDb = $json["users"][0]["name"];

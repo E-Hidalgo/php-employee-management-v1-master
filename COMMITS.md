@@ -10,7 +10,9 @@
 10. Logout alert done
 11. Playing with password encrypt
 12. Commits log updated
-13. Fixed problem with css and js links (acces to the folder)
+13. Fixed problem with css and js links (access to the folder)
+14. added comments, getting data from login
+15. Commits log updated
 
 
 
