@@ -11,6 +11,14 @@ $("#login").submit(function (e) {
 
   $.post("./src/library/loginManager.php", data, function (response) {
     console.log(response)
+    switch (response) {
+      case "Login Ok":
+        location.href = "./src/dashboard.php"; break;
+
+      default:
+        break;
+    }
+
   })
 
 })

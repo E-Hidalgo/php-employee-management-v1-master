@@ -11,30 +11,44 @@ function checkSession() {
 // TO CATCH THE DATA FROM LOGIN 
 function authUser()
 {
+
   $userName = $_POST["username"];
-  $passWord = $_POST["password"];
+$passWord = $_POST["password"];
 
-  echo $userName;
-  echo $passWord;
-  checkUser();
-}
-
-// TO CHECK IF USER IS IN DATABASE
-function checkUser() {
+  // echo $userName;
+  // echo $passWord;
+ 
 // GETTING DATA FROM JSON
+
   $string = file_get_contents("../../resources/users.json");
   $json = json_decode($string,true);
- 
-  var_dump($json);
+  $users = $json["users"];
+  //  var_dump($users);
 
-  $userNameDb = $json["users"][0]["name"];
-  $passWordDb = $json["users"][0]["password"];
+// TO CHECK IF USER IS IN DATABASE
+include_once("loginManager.php");
+  foreach ($users as $user) {
+    if($user["name"] === $userName) {
+      //User Registered"
 
-  // if($userName === $userNameDb && $passWord===$passWordDb){
-  //   session_start();
-  //   $_SESSION["username"];
-  //   $_SESSION["password"];
-  // }
+      if(password_verify($passWord, $user["password"])) {
+        //All ok log in
+        session_start();
+        $_SESSION["username"] = $userName;
+        echo "Login Ok";
+      } else {
+        echo "Invalid Password";
+      }
+    }else {
+      echo "User not found";
+    }
+    // var_dump($user);
+}
+
+
+
+
+
 }
 
 

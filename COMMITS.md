@@ -13,6 +13,7 @@
 13. Fixed problem with css and js links (access to the folder)
 14. added comments, getting data from login
 15. Commits log updated
+16. Looks like login is working
 
 
 
