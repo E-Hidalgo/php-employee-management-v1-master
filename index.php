@@ -54,7 +54,7 @@ $isLogout = $_GET["logout"];
             </div>
 
             <?= $isLogout ? '<div class="alert alert-info" role="alert">You have succesfully logged out</div>':""?>
-
+            <div class="alert alert-danger d-none" role="alert" id="error"></div>
             <div class="form-group">
               <input type="submit" value="Login" class="btn float-right btn-info login_btn">
             </div>

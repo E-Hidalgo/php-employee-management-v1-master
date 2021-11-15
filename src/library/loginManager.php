@@ -6,6 +6,8 @@ require_once("./sessionHelper.php");
 $userName = $_POST["username"];
 $passWord = $_POST["password"];
 
+
+
 // EXECUTING AUTHORIZATION
 authUser();
 

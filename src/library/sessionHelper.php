@@ -15,31 +15,31 @@ function authUser()
   $passWord = $_POST["password"];
   // echo $userName;
   // echo $passWord;
- 
 // GETTING DATA FROM JSON
   $string = file_get_contents("../../resources/users.json");
   $json = json_decode($string,true);
   $users = $json["users"];
-  //  var_dump($users);
+  // var_dump($users);
 
 // TO CHECK IF USER IS IN DATABASE
 include_once("loginManager.php");
-  foreach ($users as $user) {
-    if($user["name"] === $userName) {
-      //User Registered"
+   foreach ($users as $user) {
+     if($user["name"] === $userName) {
+        // echo "User registered";
+
       if(password_verify($passWord, $user["password"])) {
-        //All ok log in
-        session_start();
-        $_SESSION["username"] = $userName;
-        echo "Login Ok";
-      } else {
-        echo "Invalid Password";
-      }
-    }else {
+         //All ok log in
+         session_start();
+         $_SESSION["username"] = $userName;
+         echo "Login Ok";
+       } else {
+         echo "Invalid Password";
+       }
+    } else {
       echo "User not found";
     }
-    // var_dump($user);
-}
+//     // var_dump($user);
+ }
 }
 
 

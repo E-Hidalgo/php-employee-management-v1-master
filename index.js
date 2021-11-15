@@ -8,18 +8,48 @@ $("#login").submit(function (e) {
   }
 
   console.log(data)
+  // location.href = "./src/library/loginManager.php";
 
-  $.post("./src/library/loginManager.php", data, function (response) {
-    console.log(response)
-    switch (response) {
-      case "Login Ok":
-        location.href = "./src/dashboard.php";
-        break;
+  $.ajax({
+    url: "./src/library/loginManager.php",
+    type: "POST",
+    data: data,
+    success: function (response) {
+      console.log(response)
+      switch (response) {
+        case "Login Ok":
+          location.href = "./src/dashboard.php"
+          break;
 
-      default:
-        break;
+        case "Invalid Password":
+          $("#error").toggleClass("d-block");
+          $("#error").html("Invalid password, Try again.")
+
+          setTimeout(() => {
+            $("#error").removeClass("d-block");
+
+          }, 5000);
+          break;
+
+        case "User Not Found":
+          $("#error").toggleClass("d-block");
+          $("#error").html("User not Found, try again.")
+
+          setTimeout(() => {
+            $("#error").removeClass("d-block");
+
+          }, 5000);
+          break;
+
+        default:
+          break;
+      }
     }
 
   })
 
+
 })
+
+
+$.post
