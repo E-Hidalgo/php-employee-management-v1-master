@@ -19,7 +19,7 @@
 19. Error messages when login errors setted
 20. Showing empty jsGrid
 21. Showing data from JSON!
+22. newEmployee Working
 
 
 
-    "password": "$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC"
