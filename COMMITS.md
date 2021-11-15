@@ -16,6 +16,9 @@
 16. Looks like login is working
 17. Creating dashboard view
 18. Cleaned Code a lil bit
+19. Error messages when login errors setted
+20. Showing empty jsGrid
+21. Showing data from JSON!
 
 
 

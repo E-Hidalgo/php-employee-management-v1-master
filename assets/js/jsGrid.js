@@ -12,23 +12,35 @@ $("#jsGrid").jsGrid({
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete data?",
 
+  controller: {
+    loadData: function (response) {
+      return $.ajax({
+        type: "GET",
+        url: "../resources/employees.json",
+        data: response,
+        dataType: "json"
+      })
+    }
+  },
+
   fields: [{
     name: "id",
     type: "hidden",
     css: "hide"
   },
   {
-    name: "first_name",
+    name: "name",
     type: "text",
     width: 150,
     validate: "required"
   },
   {
-    name: "last_name",
+    name: "lastName",
     type: "text",
     width: 150,
     validate: "required"
   },
+
   {
     name: "age",
     type: "text",
@@ -39,7 +51,6 @@ $("#jsGrid").jsGrid({
       }
     }
   },
-
   {
     name: "gender",
     type: "select",
