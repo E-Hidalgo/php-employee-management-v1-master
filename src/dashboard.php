@@ -11,16 +11,21 @@ checkSession();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../assets/css/login.css">
+  <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
-  <!-- ------------- CDN FOR JS-GRID ------------- -->
+  <!-- ------------- FOR JS-GRID ------------- -->
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
   <link type="text/css" rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+
   <title>Document</title>
 </head>
 
@@ -43,42 +48,96 @@ checkSession();
   </header>
   <h1><?php echo "Welcome Papafrita, ". $_SESSION["username"]?></h1>
 
-  <div class="container">
-    <table class="table table-dark table-striped">
-      <thead>
-        <tr>
-          <th scope="col-md">#</th>
-          <th scope="col-md">First</th>
-          <th scope="col-md">Last</th>
-          <th scope="col-md">Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 
 
+  <div id="jsGrid"></div>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-  <script src="../assets/js/jsGrid.js"></script>
+
+  <script>
+  $("#jsGrid").jsGrid({
+    width: "100%",
+    height: "400px",
+
+    filtering: true,
+    inserting: true,
+    editing: true,
+    sorting: true,
+    paging: true,
+    autoload: true,
+    pageSize: 10,
+    pageButtonCount: 5,
+    deleteConfirm: "Do you really want to delete data?",
+
+    controller: {
+      loadData: function() {
+        var d = $.Deferred();
+
+        $.ajax({
+          url: "../resources/employees.json",
+          dataType: "json"
+        }).done(function(response) {
+          d.resolve(response.value);
+        });
+
+        return d.promise();
+      }
+    },
+
+    fields: [{
+        name: "id",
+        type: "hidden",
+        css: "hide"
+      },
+      {
+        name: "first_name",
+        type: "text",
+        width: 150,
+        validate: "required"
+      },
+      {
+        name: "last_name",
+        type: "text",
+        width: 150,
+        validate: "required"
+      },
+      {
+        name: "age",
+        type: "text",
+        width: 50,
+        validate: function(value) {
+          if (value > 0) {
+            return true;
+          }
+        }
+      },
+
+      {
+        name: "gender",
+        type: "select",
+        items: [{
+            Name: "",
+            Id: ""
+          },
+          {
+            Name: "Male",
+            Id: "male"
+          },
+          {
+            Name: "Female",
+            Id: "female"
+          }
+        ],
+        valueField: "Id",
+        textField: "Name",
+        validate: "required"
+      },
+      {
+        type: "control"
+      }
+
+    ]
+  })
+  </script>
 </body>
 
 </html>
