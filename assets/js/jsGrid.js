@@ -13,6 +13,16 @@ $("#jsGrid").jsGrid({
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete data?",
 
+  rowClick: function ({ item, itemIndex, event }) {
+    let id = "";
+
+    this.data.forEach((element) => {
+      if (item.id == element.id) id = item.id;
+    });
+
+    window.location = "../src/employee.php?id=" + id;
+  },
+
   controller: {
     loadData: function () {
       var d = $.Deferred();
@@ -49,24 +59,41 @@ $("#jsGrid").jsGrid({
       $("#jsGrid").jsGrid("render");
       return d.promise();
     },
-    // updateItem: function (item) {
-    //   return $.ajax({
-    //     type: "PUT",
-    //     url: "../resources/employee.json",
-    //     data: item,
-    //     // dataType: "json"
-    //   })
-    // },
-
-    // deleteItem: function (item) {
-    //   return $.ajax({
-    //     type: "DELETE",
-    //     url: "../resources/employee.json",
-    //     data: item,
-    //     // dataType: "json"
-    //   })
-    // }
+    deleteItem: function (item) {
+      var d = $.Deferred();
+      $.ajax({
+        type: "DELETE",
+        url: "../src/library/employeeController.php",
+        data: { id: item.id },
+        success: function (data) {
+          console.log(data)
+          d.resolve(data);
+        },
+        error: function (xhr, exception) {
+          alert("Error: " + xhr + " " + exception);
+        },
+      });
+      return d.promise();
+    },
+    updateItem: function (item) {
+      var d = $.Deferred();
+      $.ajax({
+        type: "PUT",
+        url: "../src/library/employeeController.php",
+        data: item,
+        success: function (data) {
+          console.log(data);
+          d.resolve(data);
+        },
+        error: function (xhr, exception) {
+          alert("Error: " + xhr + " " + exception);
+        },
+      });
+      return d.promise();
+    },
   },
+
+
 
   fields: [{
     name: "id",

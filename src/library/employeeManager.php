@@ -34,19 +34,53 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+    $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+    // var_dump($employeesCollection);
+
+
+    for ($i = 0; $i < count($employeesCollection); $i++) {
+        if ($employeesCollection[$i]['id'] == $id) {
+            // echo $i;
+            array_splice($employeesCollection, $i, 1);
+        } else {
+            echo "not";
+        }
+    }
+
+    file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
+    return true;
 }
 
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+
+    foreach ($employeesCollection as $index => $employee) {
+
+        if ($employee['id'] == $updateEmployee['id']) {
+            $employeesCollection[$index] = $updateEmployee;
+        }
+    }
+    file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
+    if (isset($_GET["form"])) {
+        header('Location: ../dashboard.php');
+    }
+    return true;
 }
 
 
 function getEmployee(string $id)
 {
-// TODO implement it
+    $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+
+    foreach ($employeesCollection as $index => $employee) {
+
+        if ($employee['id'] == $id) {
+            echo json_encode($employee);
+        }
+    }
+    return false;
 }
 
 

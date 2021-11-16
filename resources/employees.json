@@ -102,18 +102,5 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
-    },
-    {
-        "id": 9,
-        "name": "personajillo",
-        "email": "hola@gmail.com",
-        "age": 32,
-        "streetAddress": "32",
-        "city": "San quint\u00edn",
-        "state": "WI",
-        "postalCode": "321321",
-        "phoneNumber": "2132131231",
-        "gender": "",
-        "lastName": ""
     }
 ]
