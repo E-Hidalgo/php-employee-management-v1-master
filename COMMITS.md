@@ -20,6 +20,8 @@
 20. Showing empty jsGrid
 21. Showing data from JSON!
 22. newEmployee Working
-
+23. Commits log updated
+24. Delete and update working well
+25. Employees Page almost done
 
 
